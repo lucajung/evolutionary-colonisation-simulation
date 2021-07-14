@@ -1,6 +1,6 @@
-package model;
+package ecs.model;
 
-enum Biomes
+public enum Biomes
 {
     STONE,
     SAND,

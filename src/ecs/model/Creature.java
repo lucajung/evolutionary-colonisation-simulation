@@ -1,6 +1,6 @@
-package model;
+package ecs.model;
 
-class Creature
+public class Creature
 {
     /*
      * The x position on the map
