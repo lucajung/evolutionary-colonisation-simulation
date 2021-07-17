@@ -1,16 +1,18 @@
 import ecs.Constants;
+import ecs.ECSWindow;
 import ecs.Simulation;
 import ecs.controller.ApplicationController;
 import ecs.controller.MapController;
 
-import java.io.IOException;
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 class Application
 {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         ApplicationController applicationController = new ApplicationController();
-        MapController mapController = applicationController.mapController;
-        mapController.createMap(Constants.MAP_X_TILES, Constants.MAP_Y_TILES);
-        new Simulation(mapController.getConvertedMap());
+        ECSWindow window = new ECSWindow();
+        window.add(new Simulation(applicationController));
     }
 }
