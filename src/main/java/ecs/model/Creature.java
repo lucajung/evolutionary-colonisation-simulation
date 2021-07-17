@@ -47,4 +47,10 @@ public class Creature
      * The value is >= 0.
      */
     public int fitnessLevel;
+
+    /*
+     * Describes the angle of the eye relative to the body.
+     * The value is >= 0 and < 360. 0 is on top and increments clockwise
+     */
+    public int eyeAngle;
 }
