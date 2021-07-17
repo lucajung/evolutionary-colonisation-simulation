@@ -29,9 +29,8 @@ public class Simulation extends Canvas
         this.applicationController = applicationController;
         this.creatureController = applicationController.creatureController;
         this.mapController = applicationController.mapController;
-        mapController.createMap(Constants.MAP_X_TILES, Constants.MAP_Y_TILES);
+        this.mapController.createMap(Constants.MAP_X_TILES, Constants.MAP_Y_TILES);
         this.originalMap = mapController.getConvertedMap();
-        this.scaledMap = originalMap.getScaledInstance((int)(Constants.BACKGROUND_MAP_IMAGE_WIDTH * zoom),(int)(Constants.BACKGROUND_MAP_IMAGE_WIDTH * zoom), 0);
         setSize(Constants.BACKGROUND_MAP_IMAGE_WIDTH, Constants.BACKGROUND_MAP_IMAGE_HEIGHT);
         addMouseListener(
                 new MouseListener() {
@@ -81,7 +80,6 @@ public class Simulation extends Canvas
         addMouseWheelListener(
                 e -> {
                     zoom += e.getUnitsToScroll() / 100.0;
-                    scaledMap = originalMap.getScaledInstance((int)(Constants.BACKGROUND_MAP_IMAGE_WIDTH * zoom),(int)(Constants.BACKGROUND_MAP_IMAGE_WIDTH * zoom), 0);
                     repaint();
                 }
         );
@@ -114,6 +112,7 @@ public class Simulation extends Canvas
 
     public void drawMap(Graphics g)
     {
+        scaledMap = originalMap.getScaledInstance((int)(Constants.BACKGROUND_MAP_IMAGE_WIDTH * zoom),(int)(Constants.BACKGROUND_MAP_IMAGE_WIDTH * zoom), 0);
         g.drawImage(scaledMap, mapX, mapY, this);
     }
 
