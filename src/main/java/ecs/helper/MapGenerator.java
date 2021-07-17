@@ -1,5 +1,6 @@
 package ecs.helper;
 
+import ecs.Constants;
 import ecs.model.Biome;
 
 import java.awt.*;
@@ -22,7 +23,7 @@ public class MapGenerator {
         {
             for (int y = 0; y < map[x].length; y++)
             {
-                int noise =  (int)(ImprovedNoise.noise(x / 100.0, y / 100.0, z) * 100);
+                int noise =  (int)(ImprovedNoise.noise(x * Constants.MAP_CREATION_FACTOR, y * Constants.MAP_CREATION_FACTOR, z) * 100);
                 Biome biome = Biome.WATER;
                 if (noise > 0) {
                     biome = Biome.SAND;
