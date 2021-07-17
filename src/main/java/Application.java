@@ -1,3 +1,4 @@
+import ecs.Constants;
 import ecs.Simulation;
 import ecs.controller.ApplicationController;
 import ecs.controller.MapController;
@@ -11,7 +12,7 @@ class Application
     public static void main(String[] args) throws IOException {
         ApplicationController applicationController = new ApplicationController();
         MapController mapController = applicationController.mapController;
-        mapController.createMap(700, 700);
+        mapController.createMap(Constants.MAP_X_TILES, Constants.MAP_Y_TILES);
         new Simulation(mapController.getConvertedMap());
     }
 }

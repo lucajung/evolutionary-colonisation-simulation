@@ -11,10 +11,10 @@ public class Simulation {
 
     public Simulation(BufferedImage img)
     {
-        ImageIcon icon=new ImageIcon(img);
+        ImageIcon icon=new ImageIcon(img.getScaledInstance(Constants.BACKGROUND_MAP_IMAGE_WIDTH,Constants.BACKGROUND_MAP_IMAGE_HEIGHT, 0));
         JFrame frame=new JFrame();
         frame.setLayout(new FlowLayout());
-        frame.setSize(img.getWidth(),img.getHeight());
+        frame.setSize(Constants.BACKGROUND_MAP_IMAGE_WIDTH, Constants.BACKGROUND_MAP_IMAGE_HEIGHT);
         JLabel lbl=new JLabel();
         lbl.setIcon(icon);
         frame.add(lbl);
