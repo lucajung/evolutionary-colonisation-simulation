@@ -5,7 +5,6 @@ import ecs.controller.MapController;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.image.BufferedImage;
 
 public class Simulation extends Canvas
 {
@@ -74,13 +73,10 @@ public class Simulation extends Canvas
                 }
         );
         addMouseWheelListener(
-                new MouseWheelListener() {
-                    @Override
-                    public void mouseWheelMoved(MouseWheelEvent e) {
-                        zoom += e.getUnitsToScroll() / 100.0;
-                        scaledMap = originalMap.getScaledInstance((int)(Constants.BACKGROUND_MAP_IMAGE_WIDTH * zoom),(int)(Constants.BACKGROUND_MAP_IMAGE_WIDTH * zoom), 0);
-                        repaint();
-                    }
+                e -> {
+                    zoom += e.getUnitsToScroll() / 100.0;
+                    scaledMap = originalMap.getScaledInstance((int)(Constants.BACKGROUND_MAP_IMAGE_WIDTH * zoom),(int)(Constants.BACKGROUND_MAP_IMAGE_WIDTH * zoom), 0);
+                    repaint();
                 }
         );
     }
