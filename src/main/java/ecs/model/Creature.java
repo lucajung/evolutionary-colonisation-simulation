@@ -54,6 +54,8 @@ public class Creature
      */
     public int eyeAngle;
 
+    public Brain brain;
+
     public Creature()
     {
         positionX = 0;
@@ -65,6 +67,7 @@ public class Creature
         waterLevel = 100;
         fitnessLevel = 0;
         eyeAngle = 0;
+        brain = new Brain();
     }
 
     public Creature(int maxAge)
@@ -86,5 +89,17 @@ public class Creature
         this.positionX = positionX;
         this.positionY = positionY;
         this.maxAge = maxAge;
+    }
+
+    //TODO: Implement
+    private class Brain
+    {
+        public int[][] neurons;
+        public double[][][] weights;
+
+        public Brain()
+        {
+            this.neurons = new int[3][7];
+        }
     }
 }
