@@ -1,27 +1,33 @@
 package ecs;
 
 import ecs.controller.ApplicationController;
+import ecs.controller.CreatureController;
 import ecs.controller.MapController;
+import ecs.model.Application;
+import ecs.model.Creature;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Random;
 
 public class Simulation extends Canvas
 {
     ApplicationController applicationController;
+    CreatureController creatureController;
     MapController mapController;
     Image originalMap;
     Image scaledMap;
-    int mapX = 0;
-    int mapY = 0;
-    int mapOffsetX = 0;
-    int mapOffsetY = 0;
+    int mapX = (int)(Constants.BACKGROUND_MAP_IMAGE_HEIGHT * 0.1);
+    int mapY = (int)(Constants.BACKGROUND_MAP_IMAGE_HEIGHT * 0.1);
+    int mapOffsetX = (int)(Constants.BACKGROUND_MAP_IMAGE_HEIGHT * 0.1);
+    int mapOffsetY = (int)(Constants.BACKGROUND_MAP_IMAGE_HEIGHT * 0.1);
     int mouseClickedX = 0;
     int mouseClickedY = 0;
     float zoom = 0.8f;
 
     public Simulation(ApplicationController applicationController) {
         this.applicationController = applicationController;
+        this.creatureController = applicationController.creatureController;
         this.mapController = applicationController.mapController;
         mapController.createMap(Constants.MAP_X_TILES, Constants.MAP_Y_TILES);
         this.originalMap = mapController.getConvertedMap();
@@ -79,14 +85,43 @@ public class Simulation extends Canvas
                     repaint();
                 }
         );
+
+        addRandomCreatures(10);
+    }
+
+    /*
+     * dev method
+     */
+    private void addRandomCreatures(int number)
+    {
+        Random random = new Random();
+        for (int i = 0; i < number; i++)
+        {
+            Creature creature = new Creature(
+                    random.nextInt(Constants.BACKGROUND_MAP_IMAGE_WIDTH),
+                    random.nextInt(Constants.BACKGROUND_MAP_IMAGE_HEIGHT)
+            );
+            creatureController.addCreature(creature);
+        }
     }
 
     @Override
     public void paint(Graphics g)
     {
+        drawMap(g);
+        drawCreatures(g);
+    }
+
+    public void drawMap(Graphics g)
+    {
         g.drawImage(scaledMap, mapX, mapY, this);
     }
 
-
-
+    public void drawCreatures(Graphics g)
+    {
+        g.setColor(new Color(210, 33, 33));
+        for (Creature creature: creatureController.getCreatures()) {
+            g.fillOval(mapX + (int)(creature.positionX * zoom) - (Constants.CREATURE_DIAMETER / 2), mapY + (int)(creature.positionY * zoom) - (Constants.CREATURE_DIAMETER / 2), (int)(Constants.CREATURE_DIAMETER * zoom), (int)(Constants.CREATURE_DIAMETER * zoom));
+        }
+    }
 }

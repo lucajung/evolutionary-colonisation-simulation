@@ -5,12 +5,12 @@ public class Creature
     /*
      * The x position on the map
      */
-    public float positionX;
+    public int positionX;
 
     /*
      * The y position on the map
      */
-    public float positionY;
+    public int positionY;
 
     /*
      * The current hp.
@@ -53,4 +53,38 @@ public class Creature
      * The value is >= 0 and < 360. 0 is on top and increments clockwise
      */
     public int eyeAngle;
+
+    public Creature()
+    {
+        positionX = 0;
+        positionY = 0;
+        hp = 100;
+        age = 0;
+        maxAge = 10;
+        foodLevel = 100;
+        waterLevel = 100;
+        fitnessLevel = 0;
+        eyeAngle = 0;
+    }
+
+    public Creature(int maxAge)
+    {
+        this();
+        this.maxAge = maxAge;
+    }
+
+    public Creature(int positionX, int positionY)
+    {
+        this();
+        this.positionX = positionX;
+        this.positionY = positionY;
+    }
+
+    public Creature(int positionX, int positionY, int maxAge)
+    {
+        this();
+        this.positionX = positionX;
+        this.positionY = positionY;
+        this.maxAge = maxAge;
+    }
 }
