@@ -18,8 +18,7 @@ public class Simulation implements Runnable {
 
     @Override
     public void run() {
-        final int TARGET_FPS = 60;
-        final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;
+        final long OPTIMAL_TIME = 1000000000 / Constants.TARGET_CANVAS_FRAME_RATE;
         long loopTime;
         int frameCounter = 0;
 
