@@ -18,15 +18,21 @@ public class Simulation implements Runnable {
 
     @Override
     public void run() {
-        final int TARGET_FPS = 30;
+        final int TARGET_FPS = 60;
         final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;
         long loopTime;
+        int frameCounter = 0;
 
         while (true) {
+            frameCounter++;
             loopTime = System.nanoTime();
 
             this.simulationBackend.move();
-            this.simulationCanvas.repaint();
+
+            if(frameCounter == Constants.REFRESH_CANVAS_FRAME) {
+                this.simulationCanvas.repaint();
+                frameCounter = 0;
+            }
 
             try {
                 long gameTime = (loopTime - System.nanoTime() + OPTIMAL_TIME) / 1000000;
