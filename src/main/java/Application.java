@@ -1,8 +1,4 @@
-import ecs.ECSWindow;
 import ecs.Simulation;
-import ecs.SimulationCanvas;
-import ecs.controller.ApplicationController;
-
 
 class Application
 {

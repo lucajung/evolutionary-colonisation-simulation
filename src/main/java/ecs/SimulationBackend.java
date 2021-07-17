@@ -15,6 +15,9 @@ public class SimulationBackend {
         this.creatureController = applicationController.creatureController;
     }
 
+    /*
+     * Temp dem method
+     */
     public void move() {
         for(Creature creature : creatureController.getCreatures())
         {

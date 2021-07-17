@@ -3,7 +3,6 @@ package ecs;
 import ecs.controller.ApplicationController;
 import ecs.controller.CreatureController;
 import ecs.controller.MapController;
-import ecs.model.Application;
 import ecs.model.Creature;
 
 import java.awt.*;
