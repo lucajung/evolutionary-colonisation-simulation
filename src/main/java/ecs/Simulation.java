@@ -15,6 +15,8 @@ public class Simulation extends Canvas
     Image scaledMap;
     int mapX = 0;
     int mapY = 0;
+    int mapOffsetX = 0;
+    int mapOffsetY = 0;
     int mouseClickedX = 0;
     int mouseClickedY = 0;
     float zoom = 1;
@@ -41,7 +43,8 @@ public class Simulation extends Canvas
 
                     @Override
                     public void mouseReleased(MouseEvent e) {
-
+                        mapOffsetX = mapX;
+                        mapOffsetY = mapY;
                     }
 
                     @Override
@@ -59,8 +62,8 @@ public class Simulation extends Canvas
                 new MouseMotionListener() {
                     @Override
                     public void mouseDragged(MouseEvent e) {
-                        mapX = e.getX() - mouseClickedX;
-                        mapY = e.getY() - mouseClickedY;
+                        mapX = e.getX() - mouseClickedX + mapOffsetX;
+                        mapY = e.getY() - mouseClickedY + mapOffsetY;
                         repaint();
                     }
 
