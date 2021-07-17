@@ -19,14 +19,14 @@ public class Simulation extends Canvas
     int mapOffsetY = 0;
     int mouseClickedX = 0;
     int mouseClickedY = 0;
-    float zoom = 1;
+    float zoom = 0.8f;
 
     public Simulation(ApplicationController applicationController) {
         this.applicationController = applicationController;
         this.mapController = applicationController.mapController;
         mapController.createMap(Constants.MAP_X_TILES, Constants.MAP_Y_TILES);
         this.originalMap = mapController.getConvertedMap();
-        this.scaledMap = originalMap.getScaledInstance(Constants.BACKGROUND_MAP_IMAGE_WIDTH,Constants.BACKGROUND_MAP_IMAGE_HEIGHT, 0);
+        this.scaledMap = originalMap.getScaledInstance((int)(Constants.BACKGROUND_MAP_IMAGE_WIDTH * zoom),(int)(Constants.BACKGROUND_MAP_IMAGE_WIDTH * zoom), 0);
         setSize(Constants.BACKGROUND_MAP_IMAGE_WIDTH, Constants.BACKGROUND_MAP_IMAGE_HEIGHT);
         addMouseListener(
                 new MouseListener() {
