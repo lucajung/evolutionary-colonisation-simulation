@@ -25,10 +25,10 @@ public class MapGenerator {
             {
                 int noise =  (int)(ImprovedNoise.noise(x * Constants.MAP_CREATION_FACTOR, y * Constants.MAP_CREATION_FACTOR, z) * 100);
                 Biome biome = Biome.WATER;
-                if (noise > 0) {
+                if (noise > -10) {
                     biome = Biome.SAND;
                 }
-                if (noise > 5) {
+                if (noise > -5) {
                     biome = Biome.LAWN;
                 }
                 if (noise > 50) {
