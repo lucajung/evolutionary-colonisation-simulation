@@ -1,6 +1,6 @@
 package ecs.controller;
 
-import ecs.mapgenerator.MapGenerator;
+import ecs.helper.MapGenerator;
 import ecs.model.Application;
 import ecs.model.Biome;
 

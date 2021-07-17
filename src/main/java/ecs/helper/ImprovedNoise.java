@@ -1,4 +1,4 @@
-package ecs.mapgenerator;
+package ecs.helper;
 
 // JAVA REFERENCE IMPLEMENTATION OF IMPROVED NOISE - COPYRIGHT 2002 KEN PERLIN.
 // https://rosettacode.org/wiki/Perlin_noise#Java

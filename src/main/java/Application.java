@@ -2,8 +2,6 @@ import ecs.Constants;
 import ecs.Simulation;
 import ecs.controller.ApplicationController;
 import ecs.controller.MapController;
-import ecs.mapgenerator.MapGenerator;
-import ecs.model.Biome;
 
 import java.io.IOException;
 

@@ -19,6 +19,7 @@ public class Simulation {
         lbl.setIcon(icon);
         frame.add(lbl);
         frame.setVisible(true);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }

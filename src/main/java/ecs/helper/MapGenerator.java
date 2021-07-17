@@ -1,4 +1,4 @@
-package ecs.mapgenerator;
+package ecs.helper;
 
 import ecs.model.Biome;
 
