@@ -80,6 +80,7 @@ public class Simulation extends Canvas
         addMouseWheelListener(
                 e -> {
                     zoom += e.getUnitsToScroll() / 100.0;
+                    zoom = zoom < 0.2 ? 0.2f : zoom;
                     repaint();
                 }
         );

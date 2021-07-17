@@ -39,4 +39,12 @@ public class MapController {
         }
         return MapGenerator.convertToImage(model.map);
     }
+
+    public Biome getBiomeAt(int x, int y){
+        if(x < 0 || y < 0 || x >= model.map.length || y >= model.map[x].length)
+        {
+            throw new IndexOutOfBoundsException();
+        }
+        return model.map[x][y];
+    }
 }
