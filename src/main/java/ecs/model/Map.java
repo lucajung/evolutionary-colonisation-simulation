@@ -2,6 +2,6 @@ package ecs.model;
 
 public class Map
 {
-    public Biomes[][] biomes;
+    public Biome[][] biomes;
     public int[][] values;
 }
