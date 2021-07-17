@@ -8,8 +8,6 @@ import java.util.Random;
 
 public class MapGenerator {
 
-    //TODO: Implement Perlin Noise Generator
-
     public static Biome[][] generateMap(int sizeX, int sizeY)
     {
         if(sizeX <= 0 || sizeY <= 0)
