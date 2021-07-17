@@ -10,7 +10,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Random;
 
-public class Simulation extends Canvas
+public class SimulationCanvas extends Canvas
 {
     ApplicationController applicationController;
     CreatureController creatureController;
@@ -25,7 +25,7 @@ public class Simulation extends Canvas
     int mouseClickedY = 0;
     float zoom = 0.8f;
 
-    public Simulation(ApplicationController applicationController) {
+    public SimulationCanvas(ApplicationController applicationController) {
         this.applicationController = applicationController;
         this.creatureController = applicationController.creatureController;
         this.mapController = applicationController.mapController;
