@@ -7,13 +7,14 @@ public class Simulation implements Runnable {
     ApplicationController applicationController;
     SimulationBackend simulationBackend;
     SimulationCanvas simulationCanvas;
+    ECSWindow window;
 
     public Simulation() {
         this.applicationController = new ApplicationController();
         this.simulationCanvas = new SimulationCanvas(applicationController);
         this.simulationBackend = new SimulationBackend(applicationController);
-        ECSWindow window = new ECSWindow();
-        window.add(this.simulationCanvas);
+        this.window = new ECSWindow();
+        this.window.add(this.simulationCanvas);
     }
 
     @Override
@@ -22,7 +23,7 @@ public class Simulation implements Runnable {
         long loopTime;
         int frameCounter = 0;
 
-        while (true) {
+        while (window.isShowing) {
             frameCounter++;
             loopTime = System.nanoTime();
 

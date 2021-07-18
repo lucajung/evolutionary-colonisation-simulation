@@ -6,6 +6,8 @@ import java.awt.event.WindowEvent;
 
 public class ECSWindow extends Frame {
 
+    public boolean isShowing = true;
+
     public ECSWindow()
     {
         super("ECS");
@@ -16,6 +18,7 @@ public class ECSWindow extends Frame {
         addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent we) {
                     dispose();
+                    isShowing = false;
                 }
             }
         );
