@@ -33,4 +33,9 @@ public class CreatureController {
         }
         return model.creatures;
     }
+
+    public boolean removeCreature(Creature creature)
+    {
+        return model.creatures.remove(creature);
+    }
 }

@@ -83,24 +83,6 @@ public class SimulationCanvas extends Canvas
                     repaint();
                 }
         );
-
-        addRandomCreatures(10);
-    }
-
-    /*
-     * dev method
-     */
-    private void addRandomCreatures(int number)
-    {
-        Random random = new Random();
-        for (int i = 0; i < number; i++)
-        {
-            Creature creature = new Creature(
-                    random.nextInt(Constants.BACKGROUND_MAP_IMAGE_WIDTH),
-                    random.nextInt(Constants.BACKGROUND_MAP_IMAGE_HEIGHT)
-            );
-            creatureController.addCreature(creature);
-        }
     }
 
     @Override
@@ -118,8 +100,38 @@ public class SimulationCanvas extends Canvas
 
     public void drawCreatures(Graphics g)
     {
-        g.setColor(new Color(210, 33, 33));
-        for (Creature creature: creatureController.getCreatures()) {
+        for (Creature creature: creatureController.getCreatures())
+        {
+            switch (creature.lastAction)
+            {
+                case MOVE_TOP -> {
+                    g.setColor(new Color(210, 33, 33));
+                }
+                case MOVE_RIGHT -> {
+                    g.setColor(new Color(210, 33, 33));
+                }
+                case MOVE_BOTTOM -> {
+                    g.setColor(new Color(210, 33, 33));
+                }
+                case MOVE_LEFT -> {
+                    g.setColor(new Color(210, 33, 33));
+                }
+                case MOVE_EYE_LEFT -> {
+                    g.setColor(new Color(210, 33, 33));
+                }
+                case MOVE_EYE_RIGHT -> {
+                    g.setColor(new Color(210, 33, 33));
+                }
+                case EAT -> {
+                    g.setColor(new Color(65, 210, 33));
+                }
+                case DRINK -> {
+                    g.setColor(new Color(33, 127, 210));
+                }
+                case NONE -> {
+                    g.setColor(new Color(168, 168, 168));
+                }
+            }
             g.fillOval(mapX + (int)(creature.positionX * zoom) - (Constants.CREATURE_DIAMETER / 2), mapY + (int)(creature.positionY * zoom) - (Constants.CREATURE_DIAMETER / 2), (int)(Constants.CREATURE_DIAMETER * zoom), (int)(Constants.CREATURE_DIAMETER * zoom));
         }
     }
