@@ -104,23 +104,11 @@ public class SimulationCanvas extends Canvas
         {
             switch (creature.lastAction)
             {
-                case MOVE_TOP -> {
+                case MOVE_TOP, MOVE_RIGHT, MOVE_BOTTOM, MOVE_LEFT -> {
                     g.setColor(new Color(210, 33, 33));
                 }
-                case MOVE_RIGHT -> {
-                    g.setColor(new Color(210, 33, 33));
-                }
-                case MOVE_BOTTOM -> {
-                    g.setColor(new Color(210, 33, 33));
-                }
-                case MOVE_LEFT -> {
-                    g.setColor(new Color(210, 33, 33));
-                }
-                case MOVE_EYE_LEFT -> {
-                    g.setColor(new Color(210, 33, 33));
-                }
-                case MOVE_EYE_RIGHT -> {
-                    g.setColor(new Color(210, 33, 33));
+                case MOVE_EYE_LEFT, MOVE_EYE_RIGHT -> {
+                    g.setColor(new Color(210, 33, 192));
                 }
                 case EAT -> {
                     g.setColor(new Color(65, 210, 33));
