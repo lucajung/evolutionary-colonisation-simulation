@@ -7,6 +7,7 @@ import ecs.model.Creature;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Iterator;
 import java.util.Random;
 
 public class SimulationCanvas extends Canvas
@@ -100,8 +101,10 @@ public class SimulationCanvas extends Canvas
 
     public void drawCreatures(Graphics g)
     {
-        for (Creature creature: creatureController.getCreatures())
+        Iterator<Creature> iterator = creatureController.getCreatures().iterator();
+        while (iterator.hasNext())
         {
+            Creature creature = iterator.next();
             switch (creature.lastAction)
             {
                 case MOVE_TOP, MOVE_RIGHT, MOVE_BOTTOM, MOVE_LEFT -> {
